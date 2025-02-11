@@ -27,9 +27,9 @@ The program will guide you through selecting enhancement parameters.
 ## 📸 Example Outputs
 | Transformation | Example |
 |---------------|---------|
-| **Power Law Transformation** | ![Power](images/power_example.jpg) |
-| **Histogram Equalization** | ![Histogram](images/histogram_example.jpg) |
-| **Power Law >> Histogram** | ![PowerHistogram](images/power_histogram_example.jpg) |
+| **Original Image** | ![Original](images/Original_image.jpg |
+| **Power Law Transformation** | ![Power](images/Power_Image.jpg) |
+| **Histogram Equalization** | ![Histogram](images/Histogram_Image.jpg) |
 
 ## 📌 Requirements
 - Python 3.x
