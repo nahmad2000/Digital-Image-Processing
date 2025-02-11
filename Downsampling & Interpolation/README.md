@@ -23,9 +23,10 @@ The program will prompt you to select a **downsampling factor**.
 ## 📸 Example Outputs
 | Transformation | Example |
 |---------------|---------|
-| **Downsampled Image** | ![Downsampled](images/downsampled_example.jpg) |
-| **Nearest Neighbor Interpolation** | ![Nearest](images/nearest_example.jpg) |
-| **Bilinear Interpolation** | ![Bilinear](images/bilinear_example.jpg) |
+| **Original Image** | ![Downsampled](Images/Original.jpg) |
+| **Downsampled Image** | ![Downsampled](Images/Downsampled.jpg) |
+| **Nearest Neighbor Interpolation** | ![Nearest](Images/Nearest_Neighbor.jpg) |
+| **Bilinear Interpolation** | ![Bilinear](Images/Bilinear.jpg) |
 
 ## 📌 Requirements
 - Python 3.x
