@@ -27,7 +27,7 @@ The program will guide you through selecting enhancement parameters.
 ## 📸 Example Outputs
 | Transformation | Example |
 |---------------|---------|
-| **Original Image** | ![Original](Images/Original.jpg |
+| **Original Image** | ![Original](Images/Original.jpg) |
 | **Power Law Transformation** | ![Power](Images/Power.jpg) |
 | **Histogram Equalization** | ![Histogram](Images/Histogram.jpg) |
 
