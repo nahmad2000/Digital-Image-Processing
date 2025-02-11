@@ -34,9 +34,10 @@ pip install numpy opencv-python matplotlib
 ## 📸 Example Outputs
 | Transformation | Example |
 |---------------|---------|
-| **Rotation (30°)** | ![Rotated](images/rotated_example.jpg) |
-| **Scaling (0.5x, 1.5y)** | ![Scaled](images/scaled_example.jpg) |
-| **Translation (Tx=50, Ty=30)** | ![Translated](images/translated_example.jpg) |
+| **Original Image** | ![Original](Images/Original.jpg) |
+| **Rotation (30°)** | ![Rotated](Images/Rotation.jpg) |
+| **Scaling (1.5x, 0.5y)** | ![Scaled](Images/Scaling.jpg) |
+| **Translation (Tx=100, Ty=50)** | ![Translated](Images/Translation.jpg) |
 
 ## 📝 Notes
 ⚠ **Matplotlib normalizes all images to the same display size**, so check the saved images for correct visualization.
