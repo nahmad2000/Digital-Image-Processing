@@ -18,7 +18,7 @@ This project demonstrates **geometric transformations** applied to an image, inc
 ```bash
 python geometric_transformations.py
 ```
-The program will guide you through selecting a transformation and entering values.
+The program will guide you through selecting a transformation and entering values
 
 ## 📌 Requirements
 - Python 3.x
