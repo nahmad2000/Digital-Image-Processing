@@ -4,20 +4,20 @@ A Python tool for correcting uneven lighting in images using both spatial and fr
 
 ## Example Results
 
-<table>
+<table border="1" cellpadding="8">
   <tr>
     <th>Original</th>
-    <th>Frequency Corrected<br/>(45°)</th>
-    <th>Frequency Illumination<br/>(2×, 0.5×)</th>
-    <th>Spatial Corrected<br/>(850px, 600px)</th>
-    <th>Spatial Shading<br/>(0.5)</th>
+    <th>Frequency Corrected</th>
+    <th>Frequency Illumination</th>
+    <th>Spatial Corrected</th>
+    <th>Spatial Shading</th>
   </tr>
   <tr>
-    <td><img src="sample.jpg" alt="Original" width="150"/></td>
-    <td><img src="results/sample_frequency_corrected.png" alt="Frequency Corrected" width="150"/></td>
-    <td><img src="results/sample_frequency_illumination.png" alt="Frequency Illumination" width="150"/></td>
-    <td><img src="results/sample_spatial_corrected.png" alt="Spatial Corrected" width="150"/></td>
-    <td><img src="results/sample_spatial_shading.png" alt="Spatial Shading" width="150"/></td>
+    <td><img src="sample.jpg" alt="Original" width="300"></td>
+    <td><img src="results/sample_frequency_corrected.png" alt="Frequency Corrected" width="300"></td>
+    <td><img src="results/sample_frequency_illumination.png" alt="Frequency Illumination" width="300"></td>
+    <td><img src="results/sample_spatial_corrected.png" alt="Spatial Corrected" width="300"></td>
+    <td><img src="results/sample_spatial_shading.png" alt="Spatial Shading" width="300"></td>
   </tr>
 </table>
 
