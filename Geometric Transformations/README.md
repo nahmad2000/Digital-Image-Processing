@@ -18,14 +18,26 @@ A Python tool for applying various geometric transformations to images with supp
 
 ## Example Results
 
-| Transformation | Result |
-|---------------|--------|
-| Original Image | ![Original](image1.png) |
-| Rotation (45°) | ![Rotation](results/image1_rotation_180.0.jpg) |
-| Scaling (2x, 0.5x) | ![Scaling](results/image1_scaling_2.0_0.5.jpg) |
-| Translation (850px, 600px) | ![Translation](results/image1_translation_850.0_600.0.jpg) |
-| Vertical Shear (0.5) | ![Vertical Shear](results/image1_v_shear_0.5.jpg) |
-| Horizontal Shear (0.7) | ![Horizontal Shear](results/image1_h_shear_0.7.jpg) |
+
+<table>
+  <tr>
+    <th>Original</th>
+    <th>Rotation<br/>(45°)</th>
+    <th>Scaling<br/>(2×, 0.5×)</th>
+    <th>Translation<br/>(850px, 600px)</th>
+    <th>Vertical Shear<br/>(0.5)</th>
+    <th>Horizontal Shear<br/>(0.7)</th>
+  </tr>
+  <tr>
+    <td><img src="image1.png" alt="Original" width="150"/></td>
+    <td><img src="results/image1_rotation_180.0.jpg" alt="Rotation" width="150"/></td>
+    <td><img src="results/image1_scaling_2.0_0.5.jpg" alt="Scaling" width="150"/></td>
+    <td><img src="results/image1_translation_850.0_600.0.jpg" alt="Translation" width="150"/></td>
+    <td><img src="results/image1_v_shear_0.5.jpg" alt="Vertical Shear" width="150"/></td>
+    <td><img src="results/image1_h_shear_0.7.jpg" alt="Horizontal Shear" width="150"/></td>
+  </tr>
+</table>
+
 
 ## Requirements
 
