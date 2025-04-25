@@ -22,7 +22,7 @@ A Python tool for applying various geometric transformations to images with supp
 <table>
   <tr>
     <th>Original</th>
-    <th>Rotation<br/>(45°)</th>
+    <th>Rotation<br/>(180°)</th>
     <th>Scaling<br/>(2×, 0.5×)</th>
     <th>Translation<br/>(850px, 600px)</th>
     <th>Vertical Shear<br/>(0.5)</th>
