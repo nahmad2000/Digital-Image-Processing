@@ -141,7 +141,3 @@ Each transformation is implemented using transformation matrices:
 - Creates appropriate padding and offsets for each transformation
 - Employs center-based transformations for more intuitive results
 - Saves all results with descriptive filenames
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
