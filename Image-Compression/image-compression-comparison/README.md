@@ -1,49 +1,145 @@
-# Image Compression and Quality Metrics
+# Image Compression Analyzer
 
-This code utilizes the pillow library to compress images using its built-in compression algorithms, while also calculating quality metrics for both PNG and JPEG formats. These quality metrics include the compression ratio, mean squared error (MSE), and peak signal-to-noise ratio (PSNR).
+A powerful tool for analyzing and comparing different image compression formats (PNG, JPEG, WebP) using multiple quality metrics.
 
-For PNG compression, Pillow uses the Deflate algorithm, which is a lossless compression algorithm that combines the LZ77 algorithm and Huffman coding. This algorithm compresses image data efficiently while maintaining high compression ratios and fast compression and decompression speeds. To implement Deflate, Pillow uses the zlib library.
+## Features
 
-For JPEG compression, Pillow uses the Discrete Cosine Transform (DCT) algorithm to convert image data from the spatial domain to the frequency domain. Pillow then quantizes the coefficients obtained from the DCT and applies entropy encoding using the Huffman coding algorithm to achieve lossy compression. The level of compression is determined by the degree of quantization used on the DCT coefficients. Pillow also allows you to adjust the quality of JPEG compression by changing the level of quantization.
-
-When saving images as WebP, Pillow utilizes the WebP library, which is based on the VP8 video codec. WebP format uses a combination of lossy and lossless compression techniques, such as variable length coding (VLC) and predictive coding, to achieve high compression rates without significant loss of image quality. With Pillow, you can adjust the quality of the image and the level of compression used when saving an image in WebP format.
-
+- **Multiple Format Support**: Compare PNG, JPEG, and WebP compression formats
+- **Comprehensive Metrics**: Analyze compression ratio, MSE, PSNR, and SSIM
+- **Rich Visualizations**: Generate insightful charts and graphs
+- **Batch Processing**: Process multiple images at once
+- **Flexible Configuration**: Customize quality settings and formats
+- **Results Export**: Save analysis results to CSV for further analysis
 
 ## Installation
 
-Before running the code, ensure that you have the following packages installed:
+### Prerequisites
 
-* NumPy
-* Pillow
-* scikit-image
+- Python 3.7 or higher
+- pip (Python package manager)
 
-You can install these packages by running the following command:
+### Steps
 
+1. Clone this repository or download the script:
+
+```bash
+git clone https://github.com/yourusername/image-compression-analyzer.git
+cd image-compression-analyzer
 ```
-pip install numpy Pillow scikit-image
+
+2. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
 ```
 
+Or install dependencies manually:
+
+```bash
+pip install numpy pandas matplotlib seaborn pillow scikit-image tqdm
+```
 
 ## Usage
 
-1. Place the images you want to compress in the "images" folder in the same path of the python code.
-2. Run the code using a Python interpreter.
-3. The compressed images will be saved in the "compressed_images" folder and the quality metrics will be displayed in the console.
+### Basic Usage
 
+Place your images in a folder called `images` in the same directory as the script, then run:
 
-## Output
+```bash
+python image_compression_analyzer.py
+```
 
-The output includes the following information:
+This will:
+1. Process all images in the `images` folder
+2. Save compressed versions to `compressed_images` folder
+3. Print analysis results to the console
 
-1. it will include for each image
+### Advanced Options
 
-* PNG compression ratio, MSE, and PSNR 
-* JPEG compression ratio, MSE, and PSNR
-* WebP compression ratio, MSE, and PSNR
+```bash
+python image_compression_analyzer.py --input my_images --output compressed --quality 90 --formats png jpg webp --visualize
+```
 
+### Full Command-Line Options
 
-2. it will include the average 
+| Option | Short | Description | Default |
+|--------|-------|-------------|---------|
+| `--input` | `-i` | Directory containing original images | `images` |
+| `--output` | `-o` | Directory to save compressed images | `compressed_images` |
+| `--quality` | `-q` | Quality level for lossy compression (1-100) | `85` |
+| `--formats` | `-f` | Formats to test | `png jpg webp` |
+| `--visualize` | `-v` | Create visualizations of results | `False` |
+| `--csv` | `-c` | Path to export CSV results | `compression_results.csv` |
+| `--figures` | | Directory to save figures to | `figures` |
 
-* PNG compression ratio, MSE, and PSNR 
-* JPEG compression ratio, MSE, and PSNR
-* WebP compression ratio, MSE, and PSNR
+## Output Examples
+
+### Console Output
+
+```
+==== Image: sample_image ====
+
+-- PNG --
+Compression Ratio: 1.20
+MSE: 0.00
+PSNR: Infinity dB
+SSIM: 1.0000
+File Size: 1024.5 KB
+
+-- JPG --
+Compression Ratio: 10.50
+MSE: 5.23
+PSNR: 40.92 dB
+SSIM: 0.9820
+File Size: 117.2 KB
+
+-- WEBP --
+Compression Ratio: 15.80
+MSE: 6.12
+PSNR: 39.22 dB
+SSIM: 0.9780
+File Size: 77.8 KB
+```
+
+### Visualizations
+
+The `--visualize` option generates several charts:
+
+1. **Format Comparison**: Bar charts comparing compression ratio, PSNR, MSE, and SSIM across formats
+2. **File Size Comparison**: Box plot of file sizes by format
+3. **Metrics by Image**: Detailed breakdown of metrics for each image
+4. **PSNR vs Compression Ratio**: Scatter plot showing the quality-size tradeoff
+
+## Interpreting Results
+
+- **Compression Ratio**: Higher is better - indicates how much smaller the compressed file is
+- **MSE (Mean Squared Error)**: Lower is better - measures average squared difference between original and compressed images
+- **PSNR (Peak Signal-to-Noise Ratio)**: Higher is better - measures quality of compression (typically 30-50 dB is good)
+- **SSIM (Structural Similarity Index)**: Higher is better (max 1.0) - measures perceived quality, accounting for human visual system
+
+## Tips for Best Results
+
+- For highest quality preservation, use PNG (lossless)
+- For web images with transparency, WebP often provides the best compression ratio while maintaining quality
+- For photos, JPEG at 85% quality often provides a good balance between size and quality
+- For large batches, consider running in smaller groups to avoid memory issues
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Missing dependencies**: Make sure you've installed all required packages
+2. **Permission errors**: Ensure you have write access to output directories
+3. **Memory errors**: Try processing fewer images at once or use smaller image files
+
+### Error Logs
+
+The script creates detailed logs that can help diagnose issues. Look for error messages in the console output.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

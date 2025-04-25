@@ -1,0 +1,7 @@
+numpy
+pandas
+Pillow
+scikit-image
+matplotlib
+seaborn
+tqdm
