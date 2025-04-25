@@ -337,85 +337,6 @@ class GeometricTransformer:
             print(f"✅ Saved {transform_name} (params: {params}) as '{filename}'")
             
         return results
-    
-    def generate_readme_content(self, results: Dict[str, Dict]) -> str:
-        """
-        Generate a README.md content based on the transformation results.
-        
-        Args:
-            results (Dict): Dictionary of transformation results.
-            
-        Returns:
-            str: README.md content.
-        """
-        base_filename = os.path.splitext(os.path.basename(self.image_path))[0]
-        
-        content = [
-            "# Geometric Image Transformations",
-            "",
-            "This project demonstrates various geometric transformations applied to images using manual implementation and OpenCV optimizations.",
-            "",
-            "## Original Image",
-            "",
-            f"![Original Image]({self.image_path})",
-            "",
-            "## Transformations Applied",
-            ""
-        ]
-        
-        for transform_name, result in results.items():
-            params = result["params"]
-            path = result["path"]
-            
-            # Format parameters string based on type
-            if isinstance(params, tuple) and len(params) == 2:
-                params_str = f"{params[0]}, {params[1]}"
-            else:
-                params_str = f"{params}"
-            
-            content.extend([
-                f"### {transform_name}",
-                "",
-                f"Parameters: {params_str}",
-                "",
-                f"![{transform_name}]({path})",
-                ""
-            ])
-        
-        content.extend([
-            "## Implementation",
-            "",
-            "The transformations are implemented using both manual pixel mapping and OpenCV's optimized functions.",
-            "Each transformation demonstrates the mathematical principles behind the geometric operations.",
-            "",
-            "## Usage",
-            "",
-            "```bash",
-            "python geometric_transformations.py image.jpg --rotation 45 --x_scaling 2 --y_scaling 0.5 --h_shear 0.7 --v_shear 0.3 --tx 50 --ty 30",
-            "```",
-            "",
-            "Run with --help flag for detailed command options."
-        ])
-        
-        return "\n".join(content)
-    
-    def generate_readme(self, results: Dict[str, Dict], path: str = "README.md") -> str:
-        """
-        Generate and save a README.md file based on the transformation results.
-        
-        Args:
-            results (Dict): Dictionary of transformation results.
-            path (str, optional): Path to save the README file. Defaults to "README.md".
-            
-        Returns:
-            str: Path to the saved README file.
-        """
-        content = self.generate_readme_content(results)
-        
-        with open(path, "w") as f:
-            f.write(content)
-            
-        return path
 
 
 def parse_args():
@@ -435,7 +356,6 @@ def parse_args():
     # Additional options
     parser.add_argument("--output_dir", "-o", default="results", help="Output directory for results")
     parser.add_argument("--display", "-d", action="store_true", help="Display transformed images")
-    parser.add_argument("--readme", "-md", action="store_true", help="Generate README.md with results")
     
     return parser.parse_args()
 
@@ -491,10 +411,6 @@ def main():
                 transformer.compare_images(transformer.image, result["image"], 
                                           "Original Image", f"{name} Applied")
         
-        # Generate README if requested
-        if args.readme:
-            readme_path = transformer.generate_readme(results)
-            print(f"✅ README.md generated at {readme_path}")
             
         print(f"✅ All transformations applied and saved to {args.output_dir}/")
         
