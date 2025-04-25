@@ -207,7 +207,3 @@ illumination = results['frequency_illumination']
 - For **enhancing visibility of details**:
   - Increase `--gamma-h` to 1.5-2.0
   - Increase CLAHE clip limit to 3.0-4.0
-
-## Example Results
-
-![Comparison of Methods](./comparison.png)
