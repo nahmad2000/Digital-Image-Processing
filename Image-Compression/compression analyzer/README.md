@@ -127,7 +127,7 @@ This script is optimized for speed:
 
 ### 📊 Sample Output
 
-#### 🔍 Visual Comparison (JPG vs WEBP)
+#### 🔍 Visual Comparison (Generated figures)
 <p align="center"> <img src="./figures/metrics_comparison_barplots.png" alt="Figure 1" width="45%"/> <img src="./figures/psnr_vs_compression_scatter.png" alt="Figure 2" width="45%"/> </p>
 #### 📋 Average Results Summary
 
