@@ -20,11 +20,11 @@ A Python tool for applying various geometric transformations to images with supp
 
 | Transformation | Result |
 |---------------|--------|
-| Original Image | ![Original](image1.jpg) |
-| Rotation (45°) | ![Rotation](results/image1.jpg_rotation_45.jpg) |
-| Scaling (2x, 0.5x) | ![Scaling](results/image1.jpg_scaling_2.0_0.5.jpg) |
-| Translation (850px, 600px) | ![Translation](results/image1.jpg_translation_850.0_600.0.jpg) |
-| Vertical Shear (0.5) | ![Vertical Shear](results/image1.jpg_v_shear_0.5.jpg) |
+| Original Image | ![Original](image1.png) |
+| Rotation (45°) | ![Rotation](results/image1_rotation_180.0.jpg) |
+| Scaling (2x, 0.5x) | ![Scaling](results/image1_scaling_2.0_0.5.jpg) |
+| Translation (850px, 600px) | ![Translation](results/image1_translation_850.0_600.0.jpg) |
+| Vertical Shear (0.5) | ![Vertical Shear](results/image1_v_shear_0.5.jpg) |
 | Horizontal Shear (0.7) | ![Horizontal Shear](results/image1_h_shear_0.7.jpg) |
 
 ## Requirements
