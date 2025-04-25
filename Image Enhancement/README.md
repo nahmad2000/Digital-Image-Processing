@@ -1,51 +1,91 @@
-# Image Enhancement
+# Image Enhancement Tool
 
-This project applies **image enhancement techniques** to improve image brightness and contrast.
+A simple yet powerful Python tool for enhancing dark or low-contrast images using Power Law Transformation (Gamma Correction) and Histogram Equalization techniques.
 
-## 🔹 Enhancement Methods Used
-- **Power Law Transformation (Gamma Correction)**:
-  - Formula: `s = c * r^γ`
-  - Adjusts brightness by varying `γ` (gamma).
-  - `γ < 1`: Brightens the image.
-  - `γ > 1`: Darkens the image.
-- **Histogram Equalization**:
-  - Enhances contrast by redistributing pixel intensities.
-  - Spreads out intensity levels for a more balanced image.
+![Sample Enhancement Result](./enhanced_images/comparison.png)
 
-## 🚀 How It Works
-1. The user inputs `γ` (gamma) and `c` values for **Power Law Transformation**.
-2. The program applies **Power Law Transformation** to adjust brightness.
-3. **Histogram Equalization** is applied to enhance contrast.
-4. The final result is a **Power Law + Histogram Equalized** image.
+## Features
 
-## 📌 How to Run
-```bash
-python image_enhancement.py
+- **Power Law Transformation**: Adjusts image brightness using the formula `s = c * r^γ`
+- **Histogram Equalization**: Improves contrast by redistributing pixel intensities
+- **Combined Enhancement**: Apply both techniques sequentially for optimal results
+- **Interactive Mode**: Guided parameter selection with explanations
+- **Command-Line Support**: Batch processing capability with customizable parameters
+
+## Installation
+
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/image-enhancement-tool.git
+   cd image-enhancement-tool
+   ```
+
+2. Install required packages:
+   ```
+   pip install numpy opencv-python matplotlib
+   ```
+
+## Usage
+
+### Interactive Mode
+
 ```
-The program will guide you through selecting enhancement parameters.
-
-## 📸 Example Outputs
-| Transformation | Example |
-|---------------|---------|
-| **Original Image** | ![Original](Images/Original.jpg) |
-| **Power Law Transformation** | ![Power](Images/Power.jpg) |
-| **Histogram Equalization** | ![Histogram](Images/Histogram.jpg) |
-
-## 📌 Requirements
-- Python 3.x
-- OpenCV (`cv2`)
-- NumPy
-- Matplotlib
-
-Install dependencies using:
-```bash
-pip install numpy opencv-python matplotlib
+python image_enhancer.py
 ```
 
-## 📝 Notes
-⚠ **Matplotlib scales all images to the same display size**, so check the saved images for correct visualization.
+Follow the prompts to:
+1. Select your image file
+2. Set gamma (γ) and constant (c) values 
+3. View and save enhanced images
 
-✅ The enhanced images are saved as:
-- `Power_Image.jpg`
-- `Histogram_Image.jpg`
-- `Power_Histogram_Image.jpg`
+### Command-Line Mode
+
+```
+python image_enhancer.py --image path/to/image.jpg --gamma 0.5 --constant 1.0
+```
+
+#### Command-Line Arguments
+
+| Argument | Short | Description | Default |
+|----------|-------|-------------|---------|
+| `--image` | `-i` | Path to input image | (Required in CLI mode) |
+| `--gamma` | `-g` | Gamma value (0 < γ < 1 brightens) | (Required in CLI mode) |
+| `--constant` | `-c` | Constant multiplier | 1.0 |
+| `--output` | `-o` | Output directory | "enhanced_images" |
+| `--no-display` | - | Don't show images/plots | False |
+| `--no-save` | - | Don't save enhanced images | False |
+
+## How It Works
+
+### Power Law Transformation
+
+The power law transformation is defined by the formula:
+```
+s = c * r^γ
+```
+Where:
+- `r` is the original pixel value
+- `s` is the transformed pixel value
+- `γ` (gamma) controls brightness (γ < 1 brightens, γ > 1 darkens)
+- `c` is a constant multiplier
+
+### Histogram Equalization
+
+This technique improves contrast by:
+1. Computing the image histogram
+2. Creating a cumulative distribution function (CDF)
+3. Mapping original pixel values to new values according to the CDF
+
+### Example Results
+
+Original Image vs. Enhanced Image:
+
+![PDF Comparison](./enhanced_images/pdf_plots.png)
+
+The probability density function (PDF) plots show how pixel intensity distribution changes after applying enhancements.
+
+## Tips for Optimal Results
+
+- For dark images, try γ values between 0.3 and 0.7
+- For extremely dark images, start with γ = 0.4 and c = 1.2
+- The combined "Power Law >> Histogram" enhancement typically gives the best results
