@@ -124,6 +124,23 @@ This script is optimized for speed:
 2. **Efficient I/O:** When calculating quality metrics, it compresses images into memory buffers first, avoiding unnecessary reads and writes to the hard drive, which speeds up the process.
 
 ---
+
+### 📊 Sample Output
+
+#### 🔍 Visual Comparison (JPG vs WEBP)
+<p align="center"> <img src="./figures/metrics_comparison_barplots.png" alt="Figure 1" width="45%"/> <img src="./figures/psnr_vs_compression_scatter.png" alt="Figure 2" width="45%"/> </p>
+#### 📋 Average Results Summary
+
+|Format|Compression Ratio|MSE|PSNR (dB)|SSIM|Avg File Size (KB)|
+|---|---|---|---|---|---|
+|**JPG**|3.98|2.73|45.14|0.9761|3418.8|
+|**PNG**|0.50|0.00|∞|1.0000|19167.3|
+|**WEBP**|6.78|5.49|41.27|0.9546|2056.6|
+
+> ℹ️ _Note: PNG is lossless (hence 0 MSE and SSIM = 1.0), but results in much larger file sizes._
+
+
+---
 ## 📜 License
 
 This project is open-source. You can modify and distribute it as needed.
