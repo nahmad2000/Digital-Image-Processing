@@ -1,0 +1,9 @@
+# requirements.txt
+
+numpy          # Fundamental package for scientific computing
+Pillow         # Python Imaging Library (Fork) for image I/O
+matplotlib     # For plotting (useful for debug/analysis)
+PyYAML         # For reading potential config files (optional, can use argparse)
+scikit-image   # For SSIM calculation (simpler than implementing from scratch)
+scipy          # May be useful for certain signal processing functions (e.g., DCT/IDCT)
+PyWavelets     # For Discrete Wavelet Transforms (DWT) implementation

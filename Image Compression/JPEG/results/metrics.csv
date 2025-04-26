@@ -1,0 +1,2 @@
+Filename,Quality,PSNR(dB),SSIM,BPP,CompressionRatio,OriginalBytes,CompressedBytes
+"sample.png",75,34.8713,0.901056,1.522113,1.0904,1244817,1141585
