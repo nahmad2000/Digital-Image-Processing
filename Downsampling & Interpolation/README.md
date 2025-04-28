@@ -35,10 +35,10 @@ Analysis results for `sample.jpg` with downsampling factor 8:
 
 ## Visual Comparison
 
-### Downsampling Methods
+### Original Image
 ![Original Image](sample.jpg)
 
-### Interpolation Methods
+### Downsampling & Interpolation Methods
 The following table shows the up-sampled result of the down-sampled `sample.png` for different method combinations:
 
 | Downsampling | Nearest Neighbor | Bilinear | Bicubic | Lanczos |
