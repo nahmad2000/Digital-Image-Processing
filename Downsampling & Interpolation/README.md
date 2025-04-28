@@ -36,16 +36,16 @@ Analysis results for `sample.jpg` with downsampling factor 8:
 ## Visual Comparison
 
 ### Downsampling Methods
-![Downsampling Methods](results/analysis_20250429-012933/plots/downsampling_comparison.png)
+![Original Image](sample.png)
 
 ### Interpolation Methods
-The following table shows sample results for different method combinations:
+The following table shows the up-sampled result of the down-sampled `sample.png` for different method combinations:
 
 | Downsampling | Nearest Neighbor | Bilinear | Bicubic | Lanczos |
 |-------------|-----------------|----------|---------|---------|
-| **Simple** | ![Simple+NN](results/analysis_20250429-012933/plots/comparison_down1_up1.png) | ![Simple+Bilinear](results/analysis_20250429-012933/plots/comparison_down1_up2.png) | ![Simple+Bicubic](results/analysis_20250429-012933/plots/comparison_down1_up3.png) | ![Simple+Lanczos](results/analysis_20250429-012933/plots/comparison_down1_up4.png) |
-| **Anti-aliased** | ![Anti-aliased+NN](results/analysis_20250429-012933/plots/comparison_down2_up1.png) | ![Anti-aliased+Bilinear](results/analysis_20250429-012933/plots/comparison_down2_up2.png) | ![Anti-aliased+Bicubic](results/analysis_20250429-012933/plots/comparison_down2_up3.png) | ![Anti-aliased+Lanczos](results/analysis_20250429-012933/plots/comparison_down2_up4.png) |
-| **Area-based** | ![Area+NN](results/analysis_20250429-012933/plots/comparison_down3_up1.png) | ![Area+Bilinear](results/analysis_20250429-012933/plots/comparison_down3_up2.png) | ![Area+Bicubic](results/analysis_20250429-012933/plots/comparison_down3_up3.png) | ![Area+Lanczos](results/analysis_20250429-012933/plots/comparison_down3_up4.png) |
+| **Simple** | ![Simple+NN](results/analysis_20250429-012933/images/result_x8_down1_up1_Simple_(Pixel_Skipping)_Nearest_Neighbor.jpg) | ![Simple+Bilinear](results/analysis_20250429-012933/images/result_x8_down1_up2_Simple_(Pixel_Skipping)_Bilinear.jpg) | ![Simple+Bicubic](results/analysis_20250429-012933/images/result_x8_down1_up3_Simple_(Pixel_Skipping)_Bicubic.jpg) | ![Simple+Lanczos](results/analysis_20250429-012933/images/result_x8_down1_up4_Simple_(Pixel_Skipping)_Lanczos.jpg) |
+| **Anti-aliased** | ![Anti-aliased+NN](results/analysis_20250429-012933/images/result_x8_down2_up1_Anti-aliased_(Gaussian)_Nearest_Neighbor.jpg) | ![Anti-aliased+Bilinear](results/analysis_20250429-012933/images/result_x8_down2_up2_Anti-aliased_(Gaussian)_Bilinear.jpg) | ![Anti-aliased+Bicubic](results/analysis_20250429-012933/images/result_x8_down2_up3_Anti-aliased_(Gaussian)_Bicubic.jpg) | ![Anti-aliased+Lanczos](results/analysis_20250429-012933/images/result_x8_down2_up4_Anti-aliased_(Gaussian)_Lanczos.jpg) |
+| **Area-based** | ![Area+NN](results/analysis_20250429-012933/images/result_x8_down3_up1_Area-based_Nearest_Neighbor.jpg) | ![Area+Bilinear](results/analysis_20250429-012933/images/result_x8_down3_up2_Area-based_Bilinear.jpg) | ![Area+Bicubic](results/analysis_20250429-012933/images/result_x8_down3_up3_Area-based_Bicubic.jpg) | ![Area+Lanczos](results/analysis_20250429-012933/images/result_x8_down3_up4_Area-based_Lanczos.jpg) |
 
 ### Performance Heatmaps
 ![Metrics Heatmap](results/analysis_20250429-012933/plots/heatmap_metrics_factor8.png)
