@@ -1,89 +1,87 @@
-# Image Downsampling and Interpolation
+# Image Downsampling and Interpolation Analysis
 
-## Overview
+This tool provides comprehensive analysis of image downsampling and interpolation methods, showing how different combinations affect image quality.
 
-This Python script demonstrates the effects of image downsampling (reducing resolution) and subsequent upsampling using different interpolation techniques (Nearest Neighbor and Bilinear). It uses the highly optimized functions from the OpenCV library (`cv2`) for efficient processing and Matplotlib for displaying the results.
+## Quick Start
 
-The script allows you to visually compare the original image, the downsampled version, and the results of restoring the original dimensions using the two common interpolation methods.
+Run the analysis with:
 
-## Features
+```
+python Auto_Downsampling_Analysis.py sample.jpg --factor 8
+```
 
-* Loads grayscale images from a specified file path.
-* Prompts the user to select a downsampling factor from a predefined list (e.g., 2, 4, 8...).
-* Performs downsampling by simple pixel skipping (`image[::factor, ::factor]`).
-* Upsamples the downsampled image back to the original dimensions using:
-    * **Nearest Neighbor Interpolation** (`cv2.INTER_NEAREST`)
-    * **Bilinear Interpolation** (`cv2.INTER_LINEAR`)
-* Displays a comparison plot showing the Original, Downsampled, Nearest Neighbor Upsampled, and Bilinear Upsampled images side-by-side using Matplotlib.
-* Saves the downsampled image and the two upsampled images as separate JPG files, including the factor in the filename (e.g., `Downsampled_Image_x8.jpg`).
-* Uses command-line arguments for easy integration and specifying the input image.
+This will process your image using 12 different method combinations and generate detailed comparisons.
+
+## Results Summary
+
+Analysis results for `sample.jpg` with downsampling factor 8:
+
+| Method Combination | PSNR (dB) | SSIM |
+|-------------------|-----------|------|
+| **Area-based + Lanczos** | **27.88** | **0.766** |
+| Area-based + Bicubic | 27.77 | 0.765 |
+| Area-based + Bilinear | 26.97 | 0.754 |
+| Anti-aliased + Lanczos | 26.16 | 0.746 |
+| Anti-aliased + Bicubic | 26.13 | 0.746 |
+| Anti-aliased + Bilinear | 25.77 | 0.739 |
+| Area-based + Nearest Neighbor | 25.75 | 0.699 |
+| Simple + Bilinear | 25.19 | 0.731 |
+| Simple + Bicubic | 24.84 | 0.718 |
+| Simple + Lanczos | 24.67 | 0.708 |
+| Anti-aliased + Nearest Neighbor | 24.41 | 0.683 |
+| Simple + Nearest Neighbor | 23.07 | 0.638 |
+
+> **Best overall:** Area-based downsampling + Lanczos interpolation
+
+## Visual Comparison
+
+### Downsampling Methods
+![Downsampling Methods](results/analysis_20250429-012933/plots/downsampling_comparison.png)
+
+### Interpolation Methods
+The following table shows sample results for different method combinations:
+
+| Downsampling | Nearest Neighbor | Bilinear | Bicubic | Lanczos |
+|-------------|-----------------|----------|---------|---------|
+| **Simple** | ![Simple+NN](results/analysis_20250429-012933/plots/comparison_down1_up1.png) | ![Simple+Bilinear](results/analysis_20250429-012933/plots/comparison_down1_up2.png) | ![Simple+Bicubic](results/analysis_20250429-012933/plots/comparison_down1_up3.png) | ![Simple+Lanczos](results/analysis_20250429-012933/plots/comparison_down1_up4.png) |
+| **Anti-aliased** | ![Anti-aliased+NN](results/analysis_20250429-012933/plots/comparison_down2_up1.png) | ![Anti-aliased+Bilinear](results/analysis_20250429-012933/plots/comparison_down2_up2.png) | ![Anti-aliased+Bicubic](results/analysis_20250429-012933/plots/comparison_down2_up3.png) | ![Anti-aliased+Lanczos](results/analysis_20250429-012933/plots/comparison_down2_up4.png) |
+| **Area-based** | ![Area+NN](results/analysis_20250429-012933/plots/comparison_down3_up1.png) | ![Area+Bilinear](results/analysis_20250429-012933/plots/comparison_down3_up2.png) | ![Area+Bicubic](results/analysis_20250429-012933/plots/comparison_down3_up3.png) | ![Area+Lanczos](results/analysis_20250429-012933/plots/comparison_down3_up4.png) |
+
+### Performance Heatmaps
+![Metrics Heatmap](results/analysis_20250429-012933/plots/heatmap_metrics_factor8.png)
+
+## Understanding the Results
+
+### Image Quality Metrics
+
+- **PSNR (Peak Signal-to-Noise Ratio)**: Higher is better. Measures pixel-level accuracy.
+- **SSIM (Structural Similarity Index)**: Higher is better. Measures perceived quality.
+
+### Method Descriptions
+
+#### Downsampling Methods:
+- **Simple**: Basic pixel skipping - fast but prone to aliasing
+- **Anti-aliased**: Gaussian blur before downsampling - reduces artifacts
+- **Area-based**: Averages pixel regions - usually best for photographs
+
+#### Upsampling (Interpolation) Methods:
+- **Nearest Neighbor**: Fast but blocky
+- **Bilinear**: Smoother than NN, good balance of speed/quality
+- **Bicubic**: Better edge preservation than bilinear
+- **Lanczos**: High quality with sharp edges, but slower
+
+## Output Files
+
+The script creates a timestamped folder with:
+
+- **images/** - Individual result images
+- **plots/** - Comparison visualizations
+- **results_summary.csv** - Complete metrics table
 
 ## Requirements
 
-* Python 3.x
-* The script file itself (e.g., `Downsampling_Interpolation_Optimized.py`)
-* Required Python libraries:
-    * NumPy
-    * OpenCV for Python (`opencv-python`)
-    * Matplotlib
-
-## Setup
-
-1.  **Ensure you have the script:** Make sure the Python script file (e.g., `Downsampling_Interpolation_Optimized.py`) is located in your working directory.
-
-2.  **Install Dependencies:** Open your terminal or command prompt in the script's directory and install the required Python libraries:
-    ```bash
-    pip install numpy opencv-python matplotlib
-    ```
-    *(Using a Python virtual environment is recommended for managing project dependencies.)*
-
-## Usage
-
-Run the script from your terminal, providing the path to the image you want to process as a command-line argument.
-
-```bash
-python Downsampling_Interpolation_Optimized.py <path_to_your_image>
-````
-
-**Example:**
-
-Bash
-
-```
-# If your image is in the same folder as the script:
-python Downsampling_Interpolation_Optimized.py my_photo.jpg
-
-# If your image is in a subfolder called 'images':
-python Downsampling_Interpolation_Optimized.py images/my_photo.jpg
-```
-
-The script will then:
-
-1. Load the specified image.
-2. Prompt you to enter a downsampling factor (e.g., 2, 4, 8...).
-3. Perform the downsampling and interpolation.
-4. Display the comparison plot.
-5. Save the resulting images in the same directory where the script is run.
-
-## Input
-
-- A path to an image file (e.g., JPG, PNG, BMP, TIFF) provided as a command-line argument. The script will load it as grayscale.
-
-## Output
-
-1. **Display Window:** A Matplotlib window showing four subplots:
-    
-    - Original Image (with dimensions)
-    - Downsampled Image (with dimensions - will appear smaller)
-    - Nearest Neighbor Upsampled Image (restored dimensions)
-    - Bilinear Interpolation Upsampled Image (restored dimensions)
-2. **Saved Files:** Three image files saved in the script's directory:
-    
-    - `Downsampled_Image_x<Factor>.jpg`
-    - `Nearest_Neighbor_Image_x<Factor>.jpg`
-    - `Bilinear_Image_x<Factor>.jpg` _(Where `<Factor>` is the downsampling factor you chose)_
-
-## Notes
-
-- The Matplotlib display window automatically scales all subplots to fit. This means the "Downsampled" image might appear larger in the plot than its actual pixel dimensions relative to the others. To see the true resolution differences, examine the saved image files.
-- The downsampling method used is simple pixel skipping. For potentially higher-quality downsampling (anti-aliasing), especially with large factors, methods like `cv2.resize` with `interpolation=cv2.INTER_AREA` could be considered as an alternative.
+- Python 3.6+
+- OpenCV
+- NumPy
+- Matplotlib
+- scikit-image

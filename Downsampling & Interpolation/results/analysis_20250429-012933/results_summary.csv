@@ -1,0 +1,13 @@
+Downsampling,Upsampling,PSNR,SSIM
+Simple (Pixel Skipping),Nearest Neighbor,23.0692,0.6381
+Simple (Pixel Skipping),Bilinear,25.1917,0.7313
+Simple (Pixel Skipping),Bicubic,24.8388,0.7181
+Simple (Pixel Skipping),Lanczos,24.6673,0.7082
+Anti-aliased (Gaussian),Nearest Neighbor,24.4133,0.6832
+Anti-aliased (Gaussian),Bilinear,25.7707,0.7394
+Anti-aliased (Gaussian),Bicubic,26.1271,0.7457
+Anti-aliased (Gaussian),Lanczos,26.1597,0.7457
+Area-based,Nearest Neighbor,25.7453,0.6989
+Area-based,Bilinear,26.9690,0.7544
+Area-based,Bicubic,27.7665,0.7649
+Area-based,Lanczos,27.8751,0.7659
