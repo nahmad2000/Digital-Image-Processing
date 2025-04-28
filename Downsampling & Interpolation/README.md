@@ -36,7 +36,7 @@ Analysis results for `sample.jpg` with downsampling factor 8:
 ## Visual Comparison
 
 ### Downsampling Methods
-![Original Image](sample.png)
+![Original Image](sample.jpg)
 
 ### Interpolation Methods
 The following table shows the up-sampled result of the down-sampled `sample.png` for different method combinations:
